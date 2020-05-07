@@ -123,11 +123,13 @@ def navigation_link(text, routing="classic", target=None, icon=None, on_click=No
   visibility
   """
   if routing not in ("classic", "hash"):
-    raise ValueError("A navigation link's routing must either be 'classic' or 'hash' ")
+    raise ValueError("A navigation link's routing must either be 'classic' or 'hash'")
   link = Link(text=text, icon=icon)
   link.tag.routing = routing
   link.tag.target = target
   link.tag.visibility = visibility
   if on_click is None:
     link.set_event_handler('click', _default_link_click)
+  else:
+    link.set_event_handler('click', on_click)
   return link
