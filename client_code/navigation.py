@@ -78,7 +78,7 @@ def _register_visibility(container, link, visibility):
 def build_menu(container, items, with_title=True):
   """Add links to the container and set their initial visibility"""
   if with_title:
-    get_open_form().add_component(_title_label, slot="title")
+    container.parent.add_component(_title_label, slot="title")
   for item in items:
     link = navigation_link(**item)
     _links.append(link)
