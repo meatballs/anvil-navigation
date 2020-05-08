@@ -110,18 +110,17 @@ def navigation_link(
   
   Parameters
   ----------
-  text
-    The text which should be used for the link's 'text' property
   routing
     Either 'classic' or 'hash'
   target
     Either the name of a registered form for classic routing or
     a url_hash for hash routing
-  icon
-    text to be used for the link's 'icon' property
   on_click
     event handler to call when clicked
   visibility
+    a dict mapping the names of events to either True or False
+  kwargs
+    will be passed the Link constructor
   """
     if routing not in ("classic", "hash"):
         raise ValueError(
