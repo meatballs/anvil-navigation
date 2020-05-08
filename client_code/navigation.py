@@ -104,7 +104,7 @@ def build_menu(container, items, with_title=True):
 
 
 def navigation_link(
-    text, routing="classic", target=None, icon=None, on_click=None, visibility=None
+    routing="classic", target=None, on_click=None, visibility=None, **kwargs
 ):
     """Create a link instance
   
@@ -127,7 +127,7 @@ def navigation_link(
         raise ValueError(
             "A navigation link's routing must either be 'classic' or 'hash'"
         )
-    link = Link(text=text, icon=icon)
+    link = Link(**kwargs)
     link.tag.routing = routing
     link.tag.target = target
     link.tag.visibility = visibility
