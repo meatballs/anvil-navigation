@@ -59,10 +59,10 @@ def _open_tagged_form(form_name):
 def _default_link_click(**event_args):
     """A handler for navigation link click events
   
-  * Clears the role of all links registered in this module
-  * Set the calling link's role to 'selected'
-  * Calls the relevant action for classic or hash routing
-  """
+    * Clears the role of all links registered in this module
+    * Set the calling link's role to 'selected'
+    * Calls the relevant action for classic or hash routing
+    """
     for l in _links:
         l.role = ""
     link = event_args["sender"]
@@ -108,20 +108,20 @@ def navigation_link(
 ):
     """Create a link instance
   
-  Parameters
-  ----------
-  routing
-    Either 'classic' or 'hash'
-  target
-    Either the name of a registered form for classic routing or
-    a url_hash for hash routing
-  on_click
-    event handler to call when clicked
-  visibility
-    a dict mapping the names of events to either True or False
-  kwargs
-    will be passed the Link constructor
-  """
+    Parameters
+    ----------
+    routing
+      Either 'classic' or 'hash'
+    target
+      Either the name of a registered form for classic routing or
+      a url_hash for hash routing
+    on_click
+      event handler to call when clicked
+    visibility
+      a dict mapping the names of events to either True or False
+    kwargs
+      will be passed the Link constructor
+    """
     if routing not in ("classic", "hash"):
         raise ValueError(
             "A navigation link's routing must either be 'classic' or 'hash'"
