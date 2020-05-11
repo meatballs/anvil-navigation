@@ -17,7 +17,7 @@
 #   This program is published at https://github.com/meatballs/anvil-navigation
 from anvil import Label, Link, get_open_form, set_url_hash
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 # A dict mapping a form's name to a further dict with the form's class and title
 _forms = {}
