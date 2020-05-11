@@ -15,7 +15,7 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from anvil import Label, Link, get_open_form, set_url_hash
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 # A dict mapping a form's name to a further dict with the form's class and title
 _forms = {}
