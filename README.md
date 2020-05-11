@@ -24,5 +24,4 @@ There are two methods to install this module within your own application:
   * Copy the entire content of `client_code/navigation.py` from this repository into your 'navigation' module
   
  ### Cookiecutter Template
- If you are starting a new application, you can also use the [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template
- at https://github.com/meatballs/anvil-cookiecutter which includes this module by default.
+ If you are starting a new application, you can also use this [cookiecutter template](https://github.com/meatballs/anvil-cookiecutter) which includes this module by default.
