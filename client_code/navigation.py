@@ -1,4 +1,4 @@
-#    Anvil Navigatio
+#    Anvil Navigation
 #    Copyright 2020 Owen Campbell
 #
 #   This program is free software: you can redistribute it and/or modify
@@ -13,6 +13,8 @@
 
 #   You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+#   This program is published at https://github.com/meatballs/anvil-navigation
 from anvil import Label, Link, get_open_form, set_url_hash
 
 __version__ = "0.1.1"
