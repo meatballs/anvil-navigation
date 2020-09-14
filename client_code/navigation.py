@@ -45,17 +45,17 @@ class register:
         return cls
 
 
-def get_form(name):
+def get_form(name, *args, **kwargs):
     """Create an instance of a registered form."""
-    return _forms[name]["class"]()
+    return _forms[name]["class"](*args, **kwargs)
 
 
-def _open_tagged_form(form_name):
+def _open_tagged_form(form_name, full_width):
     """Use classic routing to open a registered form"""
     form = get_form(form_name)
     _title_label.text = _forms[form_name]["title"]
     get_open_form().content_panel.clear()
-    get_open_form().content_panel.add_component(form)
+    get_open_form().content_panel.add_component(form, full_width_row=full_width)
 
 
 def _default_link_click(**event_args):
@@ -70,7 +70,10 @@ def _default_link_click(**event_args):
     link = event_args["sender"]
     link.role = "selected"
     actions = {"classic": _open_tagged_form, "hash": set_url_hash}
-    actions[link.tag.routing](link.tag.target)
+    kwargs = {}
+    if link.tag.routing == "classic":
+        kwargs["full_width"] = link.tag.full_width
+    actions[link.tag.routing](link.tag.target, **kwargs)
 
 
 def _visibility_event_handler(**event_args):
@@ -106,14 +109,21 @@ def build_menu(container, items, with_title=True):
 
 
 def navigation_link(
-    routing="classic", target=None, on_click=None, visibility=None, **kwargs
+    routing="classic",
+    full_width=False,
+    target=None,
+    on_click=None,
+    visibility=None,
+    **kwargs
 ):
     """Create a link instance
-  
+
     Parameters
     ----------
     routing
       Either 'classic' or 'hash'
+    full_width
+      Whether the link target should open as full width
     target
       Either the name of a registered form for classic routing or
       a url_hash for hash routing
@@ -130,6 +140,7 @@ def navigation_link(
         )
     link = Link(**kwargs)
     link.tag.routing = routing
+    link.tag.full_width = full_width
     link.tag.target = target
     link.tag.visibility = visibility
     if on_click is None:
