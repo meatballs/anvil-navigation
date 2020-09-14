@@ -77,8 +77,9 @@ class Main(MainTemplate):
 ```
 will add 'Home' and 'About' links to the menu which will open registered forms named 'home' and 'about' respectively.
 
-Each item in the dict needs the 'text' and 'target' keys as a minimum. It may also include 'routing' and 'visibility' keys:
+Each item in the dict needs the 'text' and 'target' keys as a minimum. It may also include 'full_width', 'routing' and 'visibility' keys:
 
+ * 'full_width' can be True or False to indicate whether the target form should be opened with 'full_width_row' or not.
  * 'routing' can be either 'classic' or 'hash' to indicate whether clicking the link should use Anvil's `add_component` function or hash routing to open the target form. Classic routing is the default if the key is not present in the menu dict.
  * 'visibility' can be a dict mapping an anvil event to either True or False to indicate whether the link should be made visible when that event is raised.
  
