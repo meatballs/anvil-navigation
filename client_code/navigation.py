@@ -55,7 +55,7 @@ def get_form(name, *args, **kwargs):
     return _forms[name]["class"](*args, **kwargs)
 
 
-def _open_tagged_form(form_name, full_width):
+def open_form(form_name, full_width=False):
     """Use classic routing to open a registered form"""
     form = get_form(form_name)
     _title_label.text = _forms[form_name]["title"]
@@ -65,16 +65,15 @@ def _open_tagged_form(form_name, full_width):
 
 def _default_link_click(**event_args):
     """A handler for navigation link click events
-  
     * Clears the role of all links registered in this module
     * Set the calling link's role to 'selected'
     * Calls the relevant action for classic or hash routing
     """
-    for l in _links:
-        l.role = ""
+    for link in _links:
+        link.role = ""
     link = event_args["sender"]
     link.role = "selected"
-    actions = {"classic": _open_tagged_form, "hash": set_url_hash}
+    actions = {"classic": open_form, "hash": set_url_hash}
     kwargs = {}
     if link.tag.routing == "classic":
         kwargs["full_width"] = link.tag.full_width
